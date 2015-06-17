@@ -14,6 +14,7 @@
 		9652A6AD1B3177CD002DB448 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9652A6AC1B3177CD002DB448 /* Images.xcassets */; };
 		9652A6B01B3177CD002DB448 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9652A6AE1B3177CD002DB448 /* LaunchScreen.xib */; };
 		9652A6BC1B3177CD002DB448 /* Project7Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652A6BB1B3177CD002DB448 /* Project7Tests.swift */; };
+		9652A6C61B317C11002DB448 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652A6C51B317C11002DB448 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		9652A6B51B3177CD002DB448 /* Project7Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project7Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9652A6BA1B3177CD002DB448 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9652A6BB1B3177CD002DB448 /* Project7Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project7Tests.swift; sourceTree = "<group>"; };
+		9652A6C51B317C11002DB448 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		9652A6A01B3177CD002DB448 /* Project7 */ = {
 			isa = PBXGroup;
 			children = (
+				9652A6C51B317C11002DB448 /* SwiftyJSON.swift */,
 				9652A6A31B3177CD002DB448 /* AppDelegate.swift */,
 				9652A6A51B3177CD002DB448 /* MasterViewController.swift */,
 				9652A6A71B3177CD002DB448 /* DetailViewController.swift */,
@@ -218,6 +221,7 @@
 				9652A6A81B3177CD002DB448 /* DetailViewController.swift in Sources */,
 				9652A6A61B3177CD002DB448 /* MasterViewController.swift in Sources */,
 				9652A6A41B3177CD002DB448 /* AppDelegate.swift in Sources */,
+				9652A6C61B317C11002DB448 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
