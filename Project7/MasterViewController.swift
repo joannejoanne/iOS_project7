@@ -29,20 +29,22 @@ class MasterViewController: UITableViewController {
             urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
         }
         
-        if let url = NSURL(string: urlString) {
-            if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
-                let json = JSON(data: data)
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {[unowned self] in
+            if let url = NSURL(string: urlString) {
+                if let data = NSData(contentsOfURL: url, options: .allZeros, error: nil) {
+                    let json = JSON(data: data)
                 
-                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                    parseJSON(json)
+                    if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                        self.parseJSON(json)
+                    } else {
+                        self.showError()
+                    }
                 } else {
-                    showError()
+                    self.showError()
                 }
             } else {
-                showError()
+                self.showError()
             }
-        } else {
-            showError()
         }
     }
     
@@ -54,7 +56,9 @@ class MasterViewController: UITableViewController {
             let obj = ["title": title, "body": body, "sigs": sigs]
             objects.append(obj)
         }
-        tableView.reloadData()
+        dispatch_async(dispatch_get_main_queue()) {[unowned self] in
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,9 +99,11 @@ class MasterViewController: UITableViewController {
     }
     
     func showError() {
-        let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue()) {[unowned self] in
+            let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(ac, animated: true, completion: nil)
+        }
     }
 
 }
